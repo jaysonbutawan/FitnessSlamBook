@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    tools:context=".FormPageTwoFragment">
+
+    <!-- Header (Fixed at Top) -->
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="12dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Your Preferences"
+            android:textAlignment="center"
+            android:textColor="#F3705C"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/actionLayout"
+        app:layout_constraintTop_toBottomOf="@id/headerLayout">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp">
+
+            <!-- WORKOUT MUSIC SECTION -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Workout Music"
+                android:textColor="@color/primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Input Field and dedicated Add Button -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp"
+                android:gravity="center_vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputLayoutWorkOutMusic"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    app:boxStrokeColor="#F3705C"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/workOutMusic"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="e.g., Hip Hop, Electronic, Rock"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/btnAddFavSong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                    android:padding="12dp"
+                    android:src="@drawable/ic_add"
+                    android:tint="@color/primary"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/add_favorite_song" />
+
+            </LinearLayout>
+
+            <!-- Tags/Chips List -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/favSongList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:visibility="visible"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="2"
+                tools:listitem="@layout/recycle_view_single_item" />
+
+            <!-- Placeholder for description text if list is empty -->
+            <TextView
+                android:id="@+id/textFavSongPlaceholder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Your added music will appear here."
+                android:textColor="#AAAAAA"
+                android:textSize="14sp"
+                android:layout_marginBottom="32dp"
+                android:gravity="center_horizontal"
+                android:visibility="gone" />
+
+
+            <!-- SPORTS CONTENT SECTION -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Inspirational Sports Content"
+                android:textColor="@color/primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Input Field and dedicated Add Button -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp"
+                android:gravity="center_vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputLayoutSportsContent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    app:boxStrokeColor="#F3705C"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/sportsContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="e.g., Motivational Speeches, Documentaries"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/btnAddFavMov"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                    android:padding="12dp"
+                    android:src="@drawable/ic_add"
+                    android:tint="@color/primary"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/add_favorite_song" />
+
+            </LinearLayout>
+
+            <!-- Tags/Chips List -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/favMovieList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:visibility="visible"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="2"
+                tools:listitem="@layout/recycle_view_single_item" />
+
+            <!-- Placeholder for description text if list is empty -->
+            <TextView
+                android:id="@+id/textFavMoviePlaceholder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Your added content will appear here."
+                android:textColor="#AAAAAA"
+                android:textSize="14sp"
+                android:layout_marginBottom="32dp"
+                android:gravity="center_horizontal"
+                android:visibility="gone" />
+
+
+            <!-- ACTIVITIES SECTION -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Sports Interest / Preferred Activities"
+                android:textColor="@color/primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Input Field and dedicated Add Button -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp"
+                android:gravity="center_vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputLayoutEvents"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    app:boxStrokeColor="#F3705C"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/events"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="e.g., Basketball, Yoga, Running"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/btnAddHobbies"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                    android:padding="12dp"
+                    android:src="@drawable/ic_add"
+                    android:tint="@color/primary"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/add_favorite_song" />
+
+
+            </LinearLayout>
+
+            <!-- Tags/Chips List -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/hobbiesList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:visibility="visible"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="2"
+                tools:listitem="@layout/recycle_view_single_item" />
+
+            <!-- Placeholder for description text if list is empty -->
+            <TextView
+                android:id="@+id/textHobbiesPlaceholder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Your preferred activities will appear here."
+                android:textColor="#AAAAAA"
+                android:textSize="14sp"
+                android:layout_marginBottom="32dp"
+                android:gravity="center_horizontal"
+                android:visibility="gone" />
+
+
+            <!-- SKILLS SECTION -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Your Skills"
+                android:textColor="@color/primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Combined Skill Input, Spinner, and Add Button -->
+            <LinearLayout
+                android:id="@+id/linear7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Skill Name Input -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    app:boxStrokeColor="#F3705C"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/skill"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="e.g, Certified Personal Trainer"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Skill Rate Spinner (Styled as OutlinedBox using CardView) -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.8"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="#DDDDDD"
+                    app:cardCornerRadius="8dp">
+                    <Spinner
+                        android:id="@+id/skillRate"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:entries="@array/skillRate"
+                        android:background="@android:color/transparent"
+                        android:paddingStart="12dp"
+                        android:spinnerMode="dropdown" />
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/btnAddSkill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                    android:padding="12dp"
+                    android:src="@drawable/ic_add"
+                    android:tint="@color/primary"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/add_favorite_song" />
+
+            </LinearLayout>
+
+            <!-- Skills List -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/skillList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="2"
+                tools:listitem="@layout/recycle_view_single_item" />
+
+            <!-- Placeholder for description text if list is empty -->
+            <TextView
+                android:id="@+id/textSkillsPlaceholder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Your added skills will appear here."
+                android:textColor="#AAAAAA"
+                android:textSize="14sp"
+                android:layout_marginBottom="32dp"
+                android:gravity="center_horizontal"
+                android:visibility="gone" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </ScrollView>
+
+    <!-- Action Layout (Fixed at Bottom - Duplicating Footer style from Page 1) -->
+    <LinearLayout
+        android:id="@+id/actionLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="24dp"
+        android:elevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+      <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnBack"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@drawable/common_button"
+            android:text="Back"
+          android:layout_marginEnd="10dp"
+          android:textColor="@color/white"
+            app:cornerRadius="8dp" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnNext"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@drawable/common_button"
+            android:text="Submit"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

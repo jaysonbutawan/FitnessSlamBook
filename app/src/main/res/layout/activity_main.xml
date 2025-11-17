@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA">
+
+    <!-- Top App Bar / Header -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:background="@android:color/white"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:contentDescription="Back"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:src="@drawable/chevron_right"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Profile"
+            android:textColor="#F3705C"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Scrollable Content Area -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/appBar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Profile Picture Section (Placeholder) -->
+            <ImageView
+                android:id="@+id/profilePicture"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="24dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/profile_icon"
+                tools:src="@tools:sample/avatars"
+                android:background="@drawable/rounded_image_bg"
+                android:contentDescription="Profile Picture" />
+
+            <!-- 1. Personal Details Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        style="@style/SectionTitle"
+                        android:text="Personal Details"
+                        android:textColor="@color/primary"/>
+
+                    <View style="@style/Divider" />
+
+                    <TextView
+                        style="@style/DetailLabel"
+                        android:text="Name"
+                        android:textColor="@color/primary"/>
+                    <TextView
+                        android:id="@+id/detail_name"
+                        style="@style/DetailValue"
+                        tools:text="Ebrahim Diangca"/>
+
+                    <TextView
+                        style="@style/DetailLabel"
+                        android:text="Date of Birth"
+                        android:textColor="@color/primary"/>
+                    <TextView
+                        android:id="@+id/detail_birthdate"
+                        style="@style/DetailValue"
+                        tools:text="01/01/1990"
+                        android:background="@drawable/info_bg"/>
+
+                    <TextView
+                        style="@style/DetailLabel"
+                        android:text="Contact No."
+                        android:textColor="@color/primary"/>
+                    <TextView
+                        android:id="@+id/detail_contact"
+                        style="@style/DetailValue"
+                        tools:text="(123) 456-7890"
+                        android:background="@drawable/info_bg"/>
+                    <TextView
+                        style="@style/DetailLabel"
+                        android:text="Address"
+                        android:textColor="@color/primary"/>
+                    <TextView
+                        android:id="@+id/detail_address"
+                        style="@style/DetailValue"
+                        tools:text="123 Main Street, Anytown, USA"
+                        android:background="@drawable/info_bg"/>
+
+
+                    <TextView
+                        style="@style/DetailLabel"
+                        android:text="Gender"
+                        android:textColor="@color/primary"/>
+                    <TextView
+                        android:id="@+id/detail_gender"
+                        style="@style/DetailValue"
+                        tools:text="Male" />
+
+                    <TextView
+                        style="@style/DetailLabel"
+                        android:text="Status"
+                        android:textColor="@color/primary"/>
+                    <TextView
+                        android:id="@+id/detail_status"
+                        style="@style/DetailValue"
+                        tools:text="Single" />
+
+                    <TextView
+                        style="@style/DetailLabel"
+                        android:text="Email"
+                        android:textColor="@color/primary"/>
+                    <TextView
+                        android:id="@+id/detail_email"
+                        style="@style/DetailValue"
+                        tools:text="ebrahim.d@example.com" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 2. Membership Preferences Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        style="@style/SectionTitle"
+                        android:text="Membership Preferences"
+                        android:textColor="@color/primary"/>
+
+                    <View style="@style/Divider" />
+
+                    <TextView
+                        style="@style/DetailLabel"
+                        android:text="Workout Music"
+                        android:textColor="@color/primary"/>
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chip_workout_music"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp">
+                        <!-- Chips will be generated programmatically in code -->
+                        <com.google.android.material.chip.Chip
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pop"
+                            android:textSize="12sp"
+                            app:chipBackgroundColor="#F8E5D3"
+                            android:textColor="#C77D5E" />
+                        <com.google.android.material.chip.Chip
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rock"
+                            android:textSize="12sp"
+                            app:chipBackgroundColor="#F8E5D3"
+                            android:textColor="#C77D5E" />
+                    </com.google.android.material.chip.ChipGroup>
+
+                    <TextView
+                        style="@style/DetailLabel"
+                        android:text="Inspirational Sports Content"
+                        android:textColor="@color/primary"/>
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chip_sports_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp">
+                        <com.google.android.material.chip.Chip
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Motivational Speeches"
+                            android:textSize="12sp"
+                            app:chipBackgroundColor="#F8E5D3"
+                            android:textColor="#C77D5E" />
+                    </com.google.android.material.chip.ChipGroup>
+
+                    <TextView
+                        style="@style/DetailLabel"
+                        android:text="Sports Interest / Activities"
+                        android:textColor="@color/primary"/>
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chip_events"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp">
+                        <com.google.android.material.chip.Chip
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Weightlifting"
+                            android:textSize="12sp"
+                            app:chipBackgroundColor="#F8E5D3"
+                            android:textColor="#C77D5E" />
+                        <com.google.android.material.chip.Chip
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Yoga"
+                            android:textSize="12sp"
+                            app:chipBackgroundColor="#F8E5D3"
+                            android:textColor="#C77D5E" />
+                    </com.google.android.material.chip.ChipGroup>
+
+                    <TextView
+                        style="@style/DetailLabel"
+                        android:text="Skills"
+                        android:textColor="@color/primary"/>
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chip_skills"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp">
+                        <com.google.android.material.chip.Chip
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Powerlifting"
+                            android:textSize="12sp"
+                            app:chipBackgroundColor="#F8E5D3"
+                            android:textColor="#C77D5E" />
+                        <com.google.android.material.chip.Chip
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dribbling"
+                            android:textSize="12sp"
+                            app:chipBackgroundColor="#F8E5D3"
+                            android:textColor="#C77D5E" />
+                    </com.google.android.material.chip.ChipGroup>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 3. Slambook Answers Card (Unique Fields) -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        style="@style/SectionTitle"
+                        android:text="Fitness Entries"
+                        android:textColor="@color/primary"/>
+
+                    <View style="@style/Divider" />
+
+                    <TextView
+                        style="@style/DetailLabel"
+                        android:text="Club Name / Known As"
+                        android:textColor="@color/primary"/>
+                    <TextView
+                        android:id="@+id/detail_club_name"
+                        style="@style/DetailValue"
+                        tools:text="The Code Maestro" />
+
+                    <TextView
+                        style="@style/DetailLabel"
+                        android:text="Definition of Love"
+                        android:textColor="@color/primary"/>
+                    <TextView
+                        android:id="@+id/detail_define_love"
+                        style="@style/DetailValue"
+                        tools:text="Love is patient, love is kind, it is the fundamental driver for all human connection." />
+
+                    <TextView
+                        style="@style/DetailLabel"
+                        android:text="Definition of Friendship"
+                        android:textColor="@color/primary"/>
+                    <TextView
+                        android:id="@+id/detail_define_friendship"
+                        style="@style/DetailValue"
+                        tools:text="True friendship is loyalty, support, and the ability to be yourself completely." />
+
+                    <TextView
+                        style="@style/DetailLabel"
+                        android:text="Most Memorable Experience"
+                        android:textColor="@color/primary"/>
+                    <TextView
+                        android:id="@+id/detail_memorable_experience"
+                        style="@style/DetailValue"
+                        tools:text="Winning the regional coding competition in 2023." />
+                    <TextView
+                        style="@style/DetailLabel"
+                        android:text="My Rating for You"
+                        android:textColor="@color/primary"/>
+                    <RatingBar
+                        android:id="@+id/rating_bar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="?android:attr/ratingBarStyleSmall"
+                        android:numStars="5"
+                        android:stepSize="1"
+                        android:isIndicator="true"
+                        android:progressTint="#FF9800"
+                        tools:rating="4"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="8dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
